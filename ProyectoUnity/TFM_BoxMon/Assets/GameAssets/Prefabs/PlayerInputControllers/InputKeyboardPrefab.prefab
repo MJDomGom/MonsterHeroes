@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8750816519574060897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8750816519574060896}
+  - component: {fileID: 8750816519574060927}
+  m_Layer: 0
+  m_Name: InputKeyboardPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8750816519574060896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750816519574060897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8750816519574060927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750816519574060897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7919a03c8843443bef3ef7d6090cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightMovementAction:
+    m_Name: Right Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 60343ac2-1db9-4431-97f0-e4955ee43fd6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 903b48f4-1d98-4904-b1de-5174dae8d1ae
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right Movement
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 94c106a9-f366-4798-ae0a-690dd221a7ac
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right Movement
+      m_Flags: 0
+    m_Flags: 0
+  leftMovementAction:
+    m_Name: Left Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bc5ec969-ae51-45ac-8edb-2ac3ec3b97d2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8f404c1a-70ec-426b-81d6-bb139fb90a89
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Movement
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 533a5196-3fda-4991-8914-18f2605952b4
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Movement
+      m_Flags: 0
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4db90db2-4448-4ca6-9fdd-ac826e6c10f1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 00cacd2a-d368-402f-8e2e-d64f26d870b5
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
+  pauseAction:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fda7acf8-3ee8-404b-af77-5cc614ddc38c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8b9be2d4-9549-4b4b-a5c2-1cf7decdab47
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d32d5170-8227-4270-8aab-e8c6ccdbeaec
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause
+      m_Flags: 0
+    m_Flags: 0
+  debuggerModeRequest:
+    m_Name: Debugger Mode Request
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5dcdcd48-1c93-4623-af26-29d4dd73b445
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3f46f631-75f1-4d59-8971-90678fa10530
+      m_Path: <Keyboard>/numpad9
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debugger Mode Request
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d30aedf9-fd62-4e13-b04d-7fb19c7038a1
+      m_Path: <Keyboard>/9
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debugger Mode Request
+      m_Flags: 0
+    m_Flags: 0

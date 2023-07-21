@@ -1,0 +1,201 @@
+// -------------------------------------------------------
+// Root decission tree:
+// This tree will decide if the character can execute any
+// of the available subtrees and, in that case, will take
+// the decission about which tree to execute
+// -------------------------------------------------------
+tree("Root")
+	while
+		Task_IsAlive
+		sequence
+			Task_PreCalculateIsGrounded
+			fallback
+				while
+					not Task_HasPlayerBeenDetected
+					tree("CALMED_BEHAVIOR")
+				while
+					Task_HasPlayerBeenDetected
+					tree("IN_COMBAT_BEHAVIOR")
+
+
+// -------------------------------------------------------
+// Calmed behavior tree:
+// This sub-tree will define how must the character behave
+// if he is in a calmed situation
+// -------------------------------------------------------
+tree("CALMED_BEHAVIOR")
+	fallback
+		// Check if the player is detected
+		while
+			Task_IsPlayerDetected
+			sequence
+				Task_Stop
+				Task_LookToPlayer
+				Task_Alert
+		// Otherwise - patrol or idle
+		while
+			Task_IsPatrollerNPC
+			fallback
+				fallback
+					// 1.1: The NPC can let himself fall from the platforms
+					while
+						sequence
+							Task_CanNPCJumpOnCalmedState
+							Task_CanMoveForwardIgnoringFall
+						sequence
+							Task_WalkForward
+							Task_SetPatrolWaitingTime
+
+					// 1.2: The NPC cannot let himself fall from the platforms
+					while
+						sequence
+							Task_CanMoveForward
+							not Task_CanNPCJumpOnCalmedState
+						sequence
+							Task_WalkForward
+							Task_SetPatrolWaitingTime
+				// 2: Character cannot move forward: Wait and change direction
+				while
+					not Task_CanMoveForward
+					sequence
+						Task_Stop
+						not Task_MustNPCWait
+						Task_Turn
+						Task_SetPatrolWaitingTime
+		while
+			not Task_IsPatrollerNPC
+			sequence
+				Task_Stop
+				while
+					Task_MustLookAround
+					while
+						not Task_MustNPCWait
+						sequence
+							Task_Turn
+							Task_SetPatrolWaitingTime
+
+
+// -------------------------------------------------------
+// In combat behavior tree:
+// This sub-tree defines how must the character behave if
+// a combat situation is reached (the player is detected)
+// -------------------------------------------------------
+
+tree("IN_COMBAT_BEHAVIOR")
+	fallback
+		Task_CheckReturnToCalmedState
+		fallback
+			// Case 1: Chase the player and shoot to him if the NPC can
+			while
+				Task_CanChasePlayer
+				sequence
+					// Case 1: Chase the player and stop (if necessary) at
+					// the maximum stop distance
+					tree("AUXILIARY_CHASE_WITH_STOP_DISTANCE")
+					// Case 2: Must attack from the distance
+					tree("AUX_AIM_AND_SHOOT")
+
+			// Case 2: NPC can not chase. If it can attack, do it
+			while
+				not Task_CanChasePlayer
+				tree("AUX_AIM_AND_SHOOT")
+
+			// Case 3: Run away from the player
+			tree ("AUXILIARY_RUN_AWAY_FROM_CHARACTER")
+
+			
+// --------------------------------------------------------
+// Auxiliary tree to make the character run away from the
+// player
+// --------------------------------------------------------
+tree ("AUXILIARY_RUN_AWAY_FROM_CHARACTER")
+	while
+		// Case 2: The NPC must run away from the player
+		Task_MustRunAwayFromPlayer
+		sequence
+			Task_LookOppossiteToPlayer
+			fallback
+				while
+					Task_CanNPCJumpOnCombatState
+					fallback
+						while
+							Task_CanMoveForwardIgnoringFall
+							Task_RunForward
+						while
+							Task_CanJumpToAvoidObstacle
+							Task_Jump
+				while
+					not Task_CanNPCJumpOnCombatState
+					while
+						Task_CanMoveForward
+						Task_RunForward
+				Task_Stop
+
+// --------------------------------------------------------
+// Auxiliary tree to make the character CHASE the player
+// and stop at the stopping distance that this character
+// has assigned
+// --------------------------------------------------------
+tree("AUXILIARY_CHASE_WITH_STOP_DISTANCE")
+	fallback
+		while
+			Task_IsCharacterAtStopDistance
+			sequence
+				Task_LookToPlayer
+				Task_Stop
+		while
+			// Case 1: The NPC must chase the player
+			Task_CanChasePlayer
+			sequence
+				Task_LookToPlayer
+				fallback
+					// 1.1. Chase the player Jumping (or falling) if necessary
+					while
+						Task_CanNPCJumpOnCombatState
+						fallback
+							while
+								Task_CanMoveForwardIgnoringFall
+								Task_RunForward
+							while
+								Task_CanJumpToAvoidObstacle
+								Task_Jump
+					// 1.2. Chase the player, don't jump or fall from the platform
+					while
+						not Task_CanNPCJumpOnCombatState
+						while
+							Task_CanMoveForward
+							Task_RunForward
+					// 1.3. Don't move more as the NPC cannot jump or fall from the platforms
+					Task_Stop
+	
+
+// --------------------------------------------------------
+// Auxiliary subtree to make the character aim and shoot
+// --------------------------------------------------------
+tree("AUX_AIM_AND_SHOOT")
+	sequence
+		// Case 3: Must attack from the distance
+		Task_LookToPlayer
+		fallback
+			sequence
+				while
+					Task_MustAimToShoot
+					Task_Aim
+				while
+					Task_CanShootToPlayer
+					Task_Shoot
+			while
+				Task_CanShootToPlayer
+				Task_Shoot
+			// TODO Load the attack
+			Task_LoadShoot
+
+
+
+// --------------------------------------------------------
+// TODO Decide if it makes sense to create a specific state
+// where the NPC did detect the character but it is not
+// visible anymore (forget time)
+// NOTE: This state is required... It is the combat cool
+// down time
+// --------------------------------------------------------

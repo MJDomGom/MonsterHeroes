@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NPC_BigWalker_Blast_UpperBodyAvatar
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Blast Robot
+    m_Weight: 0
+  - m_Path: Rig
+    m_Weight: 0
+  - m_Path: RigBLLegPlatform
+    m_Weight: 0
+  - m_Path: RigBRLegPlatform
+    m_Weight: 0
+  - m_Path: RigFLLegPlatform
+    m_Weight: 0
+  - m_Path: RigFRLegPlatform
+    m_Weight: 0
+  - m_Path: RigPelvis
+    m_Weight: 0
+  - m_Path: RigPelvis/RigBLLeg1
+    m_Weight: 0
+  - m_Path: RigPelvis/RigBLLeg1/RigBLLeg2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigBLLeg1/RigBLLeg2/RigBLLegAnkle
+    m_Weight: 1
+  - m_Path: RigPelvis/RigBRLeg1
+    m_Weight: 0
+  - m_Path: RigPelvis/RigBRLeg1/RigBRLeg2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigBRLeg1/RigBRLeg2/RigBRLegAnkle
+    m_Weight: 1
+  - m_Path: RigPelvis/RigFLLeg1
+    m_Weight: 0
+  - m_Path: RigPelvis/RigFLLeg1/RigFLLeg2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigFLLeg1/RigFLLeg2/RigFLLegAnkle
+    m_Weight: 1
+  - m_Path: RigPelvis/RigFRLeg1
+    m_Weight: 0
+  - m_Path: RigPelvis/RigFRLeg1/RigFRLeg2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigFRLeg1/RigFRLeg2/RigFRLegAnkle
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigLArm1
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigLArm1/RigLArm2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigLArm1/RigLArm2/RigLBarrel
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigNeck
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigNeck/RigHead
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigRArm1
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigRArm1/RigRArm2
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm
+    m_Weight: 1
+  - m_Path: RigPelvis/RigSpine1/RigSpine2/RigSpine3/RigRibcage/RigRArm1/RigRArm2/RigRBarrel
+    m_Weight: 1
